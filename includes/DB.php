@@ -2,6 +2,8 @@
 
 class DB {
 
+  // Set up our database connection and options
+
   private $host = 'localhost';
   private $dbname = 'school_eindopdracht';
   private $dbuser = 'root';
