@@ -31,8 +31,10 @@ $userhandler->authRedirect('login.php', true);
     if(isset($_GET['user'])){ $view->set('views/user/table.php'); }
     if(isset($_GET['media'])){ $view->set('views/media/table.php'); }
     if(isset($_GET['media_create'])){ $view->set('views/media/media_create.php'); }
+    if(isset($_GET['media_update'])){ $view->set('views/media/media_update.php'); }
     if(isset($_GET['category'])){ $view->set('views/category/table.php'); }
     if(isset($_GET['category_create'])){ $view->set('views/category/category_create.php'); }
+    if(isset($_GET['category_update'])){ $view->set('views/category/category_update.php'); }
 
     // Render the view
     $view->render();

@@ -21,7 +21,6 @@ if(isset($_SESSION['user'])) {
   <h1>Login</h1>
 
   <p>Don't have an account yet? <a href="register.php">Register now.</a></p>
-  <br>
   
   <form action="" method="post">
     <input type="text" name="username" placeholder="Username">

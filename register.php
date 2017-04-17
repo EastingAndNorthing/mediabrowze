@@ -20,7 +20,7 @@ if(isset($_POST['user_register_submit'])) {
     <input type="password" name="password2" placeholder="Repeat password" required>
     <input type="text" name="fname" placeholder="First name" required>
     <input type="text" name="lname" placeholder="Last name" required>
-    <input type="submit" name="user_register_submit" value="Registreren">
+    <input type="submit" name="user_register_submit" value="Register">
   </form>
   <br>
   <?php

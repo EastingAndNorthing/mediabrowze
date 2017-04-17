@@ -260,14 +260,56 @@ class MediaHandler {
 
   }
 
-  public function updateMedia($media_id, $values){
+  public function updateMedia($media_id, $name, $description, $cover, $release, $category){
 
-    // Remove media from the database based on its ID.
+    // update media in the database based on its ID.
     // We have to bind :media_id in a special way, using PDO::PARAM_INT, so it doesn't get escaped with quotes like a string.
 
-    $sth = $this->db->prepare("UPDATE media SET media_name = 'updated' WHERE media_id = :media_id");
-    $sth->bindValue('media_id', intval($media_id), PDO::PARAM_INT);
-    $sth->execute();
+    // Check if the user has filled out all required fields
+
+    if(!empty($media_id) && !empty($name) && !empty($cover) && !empty($release) && !empty($category)) {
+
+      // Shorthand if statement (ternary operarator), to quickly set values to NULL if they are actuall empty strings.
+      // The operator works like this: (expression)? return if true : return if false;
+
+      $description = empty($description)? null : $description;
+
+      // Let the FileHandler class handle the cover upload.
+
+      $upload = $this->filehandler->upload($cover, $name);
+
+      // If the cover has been successfully uploaded, continue with inserting data.
+
+      if(!empty($upload['uploaded_file'])){
+
+        // Prepare a query using PDO's prepare function
+
+        $sth = $this->db->prepare("UPDATE media SET media_name = :media_name, media_description = :media_description, media_cover = :media_cover, release_date = :release_date, category_id = :category_id
+          WHERE media_id = :media_id");
+
+        // Bind parameters to be inserted in to the database
+
+        $sth->execute(array(
+          'media_id' => $media_id,
+          'media_name' => htmlspecialchars($name), // Escape HTML tags with htmlspecialchars() to prevent XSS attacks
+          'media_description' => htmlspecialchars($description),
+          'media_cover' => $upload['uploaded_file'],
+          'release_date' => $release,
+          'category_id' => $category
+        ));
+
+        // The upload has been successful.
+
+        return "'$name' was successfully updated.";
+
+      } else {
+        // Return any errors to the user
+        return $upload['errors'];
+      }
+
+    } else {
+      return 'Please fill in all required fields.';
+    }
 
   }
 

@@ -17,7 +17,7 @@ $base_url = $url[0];
 if(isset($directlink)): ?>
 
   <label for="category_id">Category: </label>
-  <select onclick="location = this.value;">
+  <select id="category-select" onclick="location = this.value;">
     <option value="<?php echo $base_url; ?>">Alles</option>
     <?php foreach($categories as $category): ?>
       <option value="<?php echo $base_url.'?category_id='.$category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
@@ -27,7 +27,7 @@ if(isset($directlink)): ?>
 <?php else: ?>
 
   <label for="category_id">Category: </label>
-  <select name="category_id">
+  <select id="category-select" name="category_id">
     <?php foreach($categories as $category): ?>
       <option value="<?php echo $category['category_id']; ?>"><?php echo $category['category_name']; ?></option>
     <?php endforeach; ?>

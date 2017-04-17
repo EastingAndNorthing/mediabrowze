@@ -5,10 +5,14 @@
   global $userhandler; // Refer to this global variable, set in loader.php
 
   if(isset($_GET['user_delete'])) {
-    $delete_msg = $userhandler->deleteUser($_GET['user_delete']);
+    $update_msg = $userhandler->deleteUser($_GET['user_delete']);
   }
 
-  if(isset($delete_msg)) { echo "<p>$delete_msg</p>"; }
+  if(isset($_GET['user_toggle_admin']) && isset($_GET['user_admin_status'])) {
+    $update_msg = $userhandler->toggleAdmin($_GET['user_toggle_admin'], $_GET['user_admin_status']);
+  }
+
+  if(isset($update_msg)) { echo "<p>$update_msg</p>"; }
 
   $users = $userhandler->getUsers();
 
@@ -28,7 +32,11 @@
           <td><?php echo $user['firstname']; ?></td>
           <td><?php echo $user['lastname']; ?></td>
           <td width="10%" class="editables">
-            <a href="admin.php?user_update=<?php echo $user['user_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+            <?php if($user['is_admin']): ?>
+              <a href="admin.php?user&user_toggle_admin=<?php echo $user['user_id']; ?>&user_admin_status=<?php echo $user['is_admin']; ?>"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+            <?php else: ?>
+              <a href="admin.php?user&user_toggle_admin=<?php echo $user['user_id']; ?>&user_admin_status=<?php echo $user['is_admin']; ?>"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <?php endif; ?>
             <a href="admin.php?user&user_delete=<?php echo $user['user_id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
           </td>
         </tr>

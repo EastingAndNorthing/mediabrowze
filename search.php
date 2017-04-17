@@ -9,9 +9,9 @@ require_once('views/header.php');
   <h1>Search</h1>
   <form action="" method="get">
     <input type="text" name="query" placeholder="Find media...">
-    <!-- <input type="text" name="user" placeholder="Find users"> -->
     <input type="submit" value="Search">
   </form>
+
   <?php
     if(isset($_GET['query'])){
       $media = $mediahandler->searchMedia($_GET['query']);
@@ -19,11 +19,6 @@ require_once('views/header.php');
       $view->assign('media', $media);
       $view->render();
     }
-
-    // if(isset($_GET['user'])){
-    //   $media = $mediahandler->getUserMedia($_GET['user']);
-    //   $mediahandler->viewMedia($media);
-    // }
   ?>
 </div>
 

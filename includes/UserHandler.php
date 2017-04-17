@@ -82,7 +82,7 @@ class UserHandler {
 
     if($pass == $pass2) {
 
-      // First check if the username already exists by querying their name
+      // After checking if the passwords match, check if the username already exists in the databse.
 
       $sth = $this->db->prepare('SELECT user_id from user WHERE username = :username LIMIT 1');
 
@@ -128,6 +128,25 @@ class UserHandler {
 
   }
 
+  public function toggleAdmin($user_id, $admin){
+
+    if(isset($user_id) && isset($admin)) {
+
+      $sth = $this->db->prepare("UPDATE user SET is_admin = :admin
+        WHERE user_id = :user_id");
+
+      // Bind parameters to be updated in the database
+
+      $sth->bindValue('user_id', intval($user_id), PDO::PARAM_INT);
+      $sth->bindValue('admin', intval(!$admin), PDO::PARAM_INT);
+      $sth->execute();
+
+      return 'User successfully updated.';
+
+    }
+
+  }
+
   public function getCount(){
 
     // Use the COUNT() function to get the number of users
@@ -156,6 +175,7 @@ class UserHandler {
     return $userdata;
 
   }
+
 
   public function deleteUser($user_id){
 
