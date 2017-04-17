@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600')
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css')
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css')
+
+$orange: #FFB200
+$cyan: #22D5B6
+$accent: $cyan
+
+@import 'generic'
+@import 'type'
+@import 'form'
+@import 'media'
+@import 'table'
+
+html, body
+  font-family: 'Open Sans', sans-serif
+
+body
+  padding-bottom: 5em
+
+header
+  padding: 1em 0
+  text-transform: uppercase
+  font-family: 'Poppins', sans-serif
+  font-weight: 700
+  color: $accent
+  background: #333
+  a
+    color: inherit
+    text-decoration: none
+
+.quicknav
+  display: flex
+  width: 100%
+  a
+    @extend .btn
+    width: 100%
+    text-align: center

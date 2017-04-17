@@ -1,0 +1,26 @@
+.media-item
+  @media screen and (max-width: 640px)
+    flex-direction: column
+  display: flex
+  margin: 1em 0
+  .media-cover
+    @media screen and (max-width: 640px)
+      width: 100%
+      margin-right: 0
+      margin-bottom: 0.5em
+      align-self: flex-start
+    flex-grow: 0
+    align-self: center
+    width: 25%
+    max-width: 300px
+    margin-right: 1em
+  .media-info
+    @media screen and (max-width: 640px)
+      width: 100%
+    width: 75%
+
+.media-category
+  display: inline-block
+  background: #333
+  padding: 0.5em
+  margin: 0
