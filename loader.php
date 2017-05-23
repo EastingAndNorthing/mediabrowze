@@ -16,6 +16,7 @@ require_once(BASEPATH.'includes/UserHandler.php');
 require_once(BASEPATH.'includes/MediaHandler.php');
 require_once(BASEPATH.'includes/FileHandler.php');
 require_once(BASEPATH.'includes/CategoryHandler.php');
+require_once(BASEPATH.'includes/ContactHandler.php');
 
 // Initialise the DB class
 $db = new DB;
@@ -29,5 +30,8 @@ if($db->conn){
   $categoryhandler = new CategoryHandler($db->conn);
 
 }
+
+// Initialise the contact form class
+$contacthandler = new ContactHandler;
 
 // note: the global variables above are available in included files by calling 'global $var' within the file.

@@ -29,7 +29,7 @@ class View {
 
   public function set($file){
 
-    if(file_exists($file)) { // Checks if the php file actuall exists
+    if(file_exists($file)) { // Checks if the php file actually exists
 
       $this->view = BASEPATH.$file; // Set the view file, using an absolute reference to the base directory
 
@@ -59,7 +59,7 @@ class View {
       extract($this->data);
 
       include($this->view); // Includes the view file.
-      
+
     }
   }
 

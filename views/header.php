@@ -17,6 +17,7 @@
     <div class="max width">
       <a href="index.php">Mediabrowze</a>
       <nav class="floatright">
+        <a href="contact.php">Contact | </a>
         <?php
           if(isset($_SESSION['user'])) {
             // If a user is an administrator, show the admin link.
@@ -37,3 +38,5 @@
       </nav>
     </div>
   </header>
+
+<main>
