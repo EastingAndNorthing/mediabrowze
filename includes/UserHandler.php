@@ -102,8 +102,8 @@ class UserHandler {
 
         // Prepare the query
 
-        $sth = $this->db->prepare("INSERT INTO user (user_id, username, password, firstname, lastname, is_admin)
-          VALUES (NULL, :username, :pass, :fname, :lname, :admin)");
+        $sth = $this->db->prepare("INSERT INTO user (user_id, username, password, firstname, lastname, is_admin, user_created_at)
+          VALUES (NULL, :username, :pass, :fname, :lname, :admin, :user_created_at)");
 
         // Bind values to the PDO statement handler ($sth)
         // Use htmlspecialchars to escape any html tags, to prevent users inserting malicous code.
@@ -113,7 +113,8 @@ class UserHandler {
           'pass' => htmlspecialchars($pass),
           'fname' => htmlspecialchars($fname),
           'lname' => htmlspecialchars($lname),
-          'admin' => 0
+          'admin' => 0,
+          'user_created_at' => date('Y-m-d')
         ));
 
         return 'Your account has been created.';

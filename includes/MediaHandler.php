@@ -232,8 +232,8 @@ class MediaHandler {
 
         // Prepare a query using PDO's prepare function
 
-        $sth = $this->db->prepare("INSERT INTO media (media_id, media_name, media_description, media_cover, release_date, category_id)
-          VALUES (NULL, :media_name, :media_description, :media_cover, :release_date, :category_id)");
+        $sth = $this->db->prepare("INSERT INTO media (media_id, media_name, media_description, media_cover, release_date, category_id, media_created_at)
+          VALUES (NULL, :media_name, :media_description, :media_cover, :release_date, :category_id, :media_created_at)");
 
         // Bind parameters to be inserted in to the database
 
@@ -242,7 +242,8 @@ class MediaHandler {
           'media_description' => htmlspecialchars($description),
           'media_cover' => $upload['uploaded_file'],
           'release_date' => $release,
-          'category_id' => $category
+          'category_id' => $category,
+          'media_created_at' => date('Y-m-d')
         ));
 
         // The upload has been successful.

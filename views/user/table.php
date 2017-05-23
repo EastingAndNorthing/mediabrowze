@@ -24,6 +24,7 @@ if(!empty($users)): ?>
     <th>Username</th>
     <th>First name</th>
     <th>Last name</th>
+    <th>Creation date</th>
     <th>Edit</th>
   </tr>
    <?php foreach($users as $user): ?>
@@ -32,6 +33,7 @@ if(!empty($users)): ?>
         <td><?php echo $user['username']; ?></td>
         <td><?php echo $user['firstname']; ?></td>
         <td><?php echo $user['lastname']; ?></td>
+        <td><?php echo $user['user_created_at']; ?></td>
         <td width="10%" class="editables">
           <?php if($user['is_admin']): ?>
             <a href="admin.php?user&user_toggle_admin=<?php echo $user['user_id']; ?>&user_admin_status=<?php echo $user['is_admin']; ?>"><i class="fa fa-user-plus" aria-hidden="true"></i></a>

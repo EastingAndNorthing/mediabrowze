@@ -66,14 +66,15 @@ class CategoryHandler {
 
       // Prepare a query using PDO's prepare function
 
-      $sth = $this->db->prepare("INSERT INTO category (category_id, category_name, category_color)
-        VALUES (NULL, :category_name, :category_color)");
+      $sth = $this->db->prepare("INSERT INTO category (category_id, category_name, category_color, category_created_at)
+        VALUES (NULL, :category_name, :category_color, :category_created_at)");
 
       // Bind parameters to be inserted in to the database
 
       $sth->execute(array(
         'category_name' => htmlspecialchars($name), // Escape HTML tags to prevent XSS attacks
         'category_color' => $color,
+        'category_created_at' => date('Y-m-d')
       ));
 
       return "'$name' was successfully created.";
@@ -101,7 +102,7 @@ class CategoryHandler {
       return 'Category successfully updated.';
 
     }
-    
+
   }
 
   public function deleteCategory($category_id){

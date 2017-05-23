@@ -17,15 +17,17 @@
     <table>
     <tr>
       <th>ID</th>
-      <th>Name</th>
       <th>Color</th>
+      <th>Name</th>
+      <th>Creation date</th>
       <th>Edit</th>
     </tr>
      <?php foreach($categories as $category): ?>
         <tr>
           <td><?php echo $category['category_id']; ?></td>
-          <td><?php echo $category['category_name']; ?></td>
           <td><div class="color" style='background-color: #<?php echo $category['category_color']; ?>'></div></td>
+          <td><?php echo $category['category_name']; ?></td>
+          <td><?php echo $category['category_created_at']; ?></td>
           <td width="10%" class="editables">
             <a href="admin.php?category_update=<?php echo $category['category_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             <a href="admin.php?category&category_delete=<?php echo $category['category_id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>

@@ -21,6 +21,7 @@
       <th>Cover</th>
       <th>Name</th>
       <th>Category</th>
+      <th>Creation date</th>
       <th>Edit</th>
     </tr>
      <?php foreach($media as $media): ?>
@@ -29,6 +30,7 @@
           <td><img src="media/<?php echo $media['media_cover']; ?>"></td>
           <td><?php echo $media['media_name']; ?></td>
           <td><?php echo $media['category_name']; ?></td>
+          <td><?php echo $media['media_created_at']; ?></td>
           <td width="10%" class="editables">
             <a href="admin.php?media_update=<?php echo $media['media_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
             <a href="admin.php?media&media_delete=<?php echo $media['media_id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
