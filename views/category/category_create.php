@@ -14,9 +14,9 @@ if(isset($_POST['category_create_submit'])) {
 <h3>Add Category</h3>
 
 <form action="" method="post">
-  <input type="text" name="category_name" placeholder="Category Name" required>
+  <input type="text" name="category_name" placeholder="Category Name" value="<?php if(isset($_POST['category_name'])) echo $_POST['category_name']; ?>" required>
   <label for="category_color">Color</label>
-  <input type="color" name="category_color" required>
+  <input type="color" name="category_color" value="<?php if(isset($_POST['category_color'])) echo $_POST['category_color']; ?>" required>
   <input type="submit" name="category_create_submit" value="Create">
 </form>
 <br>

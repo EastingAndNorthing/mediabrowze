@@ -117,6 +117,9 @@ class UserHandler {
           'user_created_at' => date('Y-m-d')
         ));
 
+        // Unset any posted data to clean up sticky forms
+        unset($_POST);
+
         return 'Your account has been created.';
 
       } else {

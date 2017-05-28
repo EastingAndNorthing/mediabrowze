@@ -76,6 +76,9 @@ class CategoryHandler {
         'category_color' => $color,
         'category_created_at' => date('Y-m-d')
       ));
+      
+      // Unset any posted data to clean up sticky forms
+      unset($_POST);
 
       return "'$name' was successfully created.";
 

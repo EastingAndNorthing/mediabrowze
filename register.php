@@ -15,11 +15,11 @@ if(isset($_POST['user_register_submit'])) {
   <h1>Register</h1>
 
   <form action="" method="post">
-    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="username" placeholder="Username" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>" required>
     <input type="password" name="password" placeholder="Password" required>
     <input type="password" name="password2" placeholder="Repeat password" required>
-    <input type="text" name="fname" placeholder="First name" required>
-    <input type="text" name="lname" placeholder="Last name" required>
+    <input type="text" name="fname" placeholder="First name" value="<?php if(isset($_POST['fname'])) echo $_POST['fname']; ?>" required>
+    <input type="text" name="lname" placeholder="Last name" value="<?php if(isset($_POST['lname'])) echo $_POST['lname']; ?>" required>
     <input type="submit" name="user_register_submit" value="Register">
   </form>
   <br>

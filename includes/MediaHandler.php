@@ -246,6 +246,9 @@ class MediaHandler {
           'media_created_at' => date('Y-m-d')
         ));
 
+        // Unset any posted data to clean up sticky forms
+        unset($_POST);
+
         // The upload has been successful.
 
         return "'$name' was successfully created.";
