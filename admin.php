@@ -1,5 +1,7 @@
 <?php
 
+$currentpage = 'admin';
+
 require_once('loader.php');
 require_once('views/header.php');
 

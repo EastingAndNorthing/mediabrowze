@@ -1,5 +1,7 @@
 <?php
 
+$currentpage = 'register';
+
 require_once('loader.php');
 require_once('views/header.php');
 

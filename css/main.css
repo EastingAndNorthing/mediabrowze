@@ -56,7 +56,8 @@ table .editables a:hover { color: #22D5B6; }
 html, body { font-family: "Open Sans", sans-serif; }
 
 header { padding: 1em 0; text-transform: uppercase; font-family: "Poppins", sans-serif; font-weight: 700; color: #22D5B6; background: #333; }
-header a { color: inherit; text-decoration: none; }
+header a { color: inherit; text-decoration: none; line-height: 1; }
+header a.active { border-bottom: 0.15em solid #22D5B6; }
 
 .quicknav { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; width: 100%; }
 .quicknav a { width: 100%; text-align: center; }

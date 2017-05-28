@@ -1,5 +1,7 @@
 <?php
 
+$currentpage = 'login';
+
 require_once('loader.php');
 require_once('views/header.php');
 
@@ -21,7 +23,7 @@ if(isset($_SESSION['user'])) {
   <h1>Login</h1>
 
   <p>Don't have an account yet? <a href="register.php">Register now.</a></p>
-  
+
   <form action="" method="post">
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
